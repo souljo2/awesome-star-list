@@ -19,5 +19,6 @@ jobs:
           npx stargazed \
           -u SeJune \
           -r awesome-star-list \
+          -m "Updated" \
           -t ${GITHUB_TOKEN} \
           -s
