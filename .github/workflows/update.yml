@@ -1,0 +1,23 @@
+name: Stargazed
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+      - name: Update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+        run: |
+          npx stargazed \
+          -u SeJune \
+          -r awesome-star-list \
+          -t ${GITHUB_TOKEN} \
+          -s
