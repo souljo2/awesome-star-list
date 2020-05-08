@@ -1,0 +1,27 @@
+name: Stargazed
+
+on:
+  schedule:
+    - cron: "30 18 * * *"
+
+jobs:
+  update:
+    name: 'stargazed update'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Use GitHub Actions'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js 12.x'
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+      - name: Update
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        run: |
+          npx stargazed \
+          --username "SeJune" \
+          --token ${GITHUB_TOKEN} \
+          --repo "awesome-star-list" \
+          --message "stargazed update by GitHub Actions Workflow" \
+          --sort
