@@ -16,12 +16,10 @@ jobs:
         with:
           node-version: 12.x
       - name: Update
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         run: |
           npx stargazed \
           --username "SeJune" \
-          --token ${GITHUB_TOKEN} \
+          --token ${{ secrets.GITHUB_TOKEN }} \
           --repo "awesome-star-list" \
           --message "stargazed update by GitHub Actions Workflow" \
           --sort
