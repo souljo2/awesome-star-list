@@ -18,7 +18,7 @@ jobs:
       - name: Update
         run: |
           npx stargazed \
-          --username "SeJune" \
+          --username "souljo2" \
           --token ${{ secrets.GITHUB_TOKEN }} \
           --repo "awesome-star-list" \
           --message "stargazed update by GitHub Actions Workflow" \
